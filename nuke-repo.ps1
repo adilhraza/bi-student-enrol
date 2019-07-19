@@ -1,0 +1,1 @@
+Get-ChildItem -inc bin, obj, packages, .vs -rec | Remove-Item -rec -force
