@@ -12,6 +12,7 @@ namespace StudentCourseApp.MVC
     {
         protected void Application_Start()
         {
+            DiConfig.Configure();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
