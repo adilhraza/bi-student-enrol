@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201907201704128_Initial Entities.Designer.cs">
       <DependentUpon>201907201704128_Initial Entities.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907201917104_AlterTableAspNetUsersAddStudentId.cs" />
+    <Compile Include="Migrations\201907201917104_AlterTableAspNetUsersAddStudentId.Designer.cs">
+      <DependentUpon>201907201917104_AlterTableAspNetUsersAddStudentId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +75,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201907201704128_Initial Entities.resx">
       <DependentUpon>201907201704128_Initial Entities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907201917104_AlterTableAspNetUsersAddStudentId.resx">
+      <DependentUpon>201907201917104_AlterTableAspNetUsersAddStudentId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
