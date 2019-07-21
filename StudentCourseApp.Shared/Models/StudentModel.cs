@@ -1,4 +1,5 @@
 ﻿using System;
+using StudentCourseApp.Shared.Enums;
 
 namespace StudentCourseApp.Shared.Models
 {
