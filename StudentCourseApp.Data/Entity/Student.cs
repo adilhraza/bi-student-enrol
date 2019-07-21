@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using StudentCourseApp.Data.Enums;
+using StudentCourseApp.Shared.Enums;
 
 namespace StudentCourseApp.Data.Entity
 {

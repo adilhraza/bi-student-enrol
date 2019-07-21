@@ -1,4 +1,4 @@
-﻿namespace StudentCourseApp.Data.Enums
+﻿namespace StudentCourseApp.Shared.Enums
 {
     public enum Gender
     {

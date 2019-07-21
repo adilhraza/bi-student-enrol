@@ -52,9 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Course.cs" />
-    <Compile Include="Enums\Gender.cs" />
     <Compile Include="Entity\Student.cs" />
     <Compile Include="Infrastructure\AppDbContext.cs" />
+    <Compile Include="Infrastructure\DiRegisterModule.cs" />
     <Compile Include="Migrations\201907201704128_Initial Entities.cs" />
     <Compile Include="Migrations\201907201704128_Initial Entities.Designer.cs">
       <DependentUpon>201907201704128_Initial Entities.cs</DependentUpon>
@@ -96,6 +96,11 @@
       <DependentUpon>201907201946134_UpdateTableAspNetRolesAddStudentAndAdminRoles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\StudentCourseApp.Shared\StudentCourseApp.Shared.csproj">
+      <Project>{c6b792b2-d97a-46d8-a493-bea4878f3fd0}</Project>
+      <Name>StudentCourseApp.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
