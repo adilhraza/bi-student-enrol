@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\StudentService.cs" />
-    <Compile Include="Infrastructure\DiRegisterModule.cs" />
+    <Compile Include="Infrastructure\ServicesDiModule.cs" />
     <Compile Include="IStudentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -54,6 +54,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\StudentCourseApp.Data\StudentCourseApp.Data.csproj">
+      <Project>{3bab8b40-dc05-4bec-966a-12346bb1a52f}</Project>
+      <Name>StudentCourseApp.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StudentCourseApp.Shared\StudentCourseApp.Shared.csproj">
       <Project>{c6b792b2-d97a-46d8-a493-bea4878f3fd0}</Project>
       <Name>StudentCourseApp.Shared</Name>

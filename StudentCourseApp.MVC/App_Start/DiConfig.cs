@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using StudentCourseApp.Services.Infrastructure;
 
 namespace StudentCourseApp.MVC
 {
@@ -17,7 +18,7 @@ namespace StudentCourseApp.MVC
             builder.RegisterFilterProvider();
 
             // register services module
-
+            builder.RegisterModule(new ServicesDiModule());
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

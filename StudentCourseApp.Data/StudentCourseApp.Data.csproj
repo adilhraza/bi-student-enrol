@@ -54,7 +54,7 @@
     <Compile Include="Entity\Course.cs" />
     <Compile Include="Entity\Student.cs" />
     <Compile Include="Infrastructure\AppDbContext.cs" />
-    <Compile Include="Infrastructure\DiRegisterModule.cs" />
+    <Compile Include="Infrastructure\DataDiModule.cs" />
     <Compile Include="Migrations\201907201704128_Initial Entities.cs" />
     <Compile Include="Migrations\201907201704128_Initial Entities.Designer.cs">
       <DependentUpon>201907201704128_Initial Entities.cs</DependentUpon>
