@@ -10,7 +10,6 @@ namespace StudentCourseApp.Data.Infrastructure
         {
            builder.RegisterType<StudentRepository>().As<IStudentRepository>();
            builder.RegisterType<CourseRepository>().As<ICourseRepository>();
-           builder.RegisterType<AppDbContext>().As<IAppDbContext>();
         }
     }
 }
