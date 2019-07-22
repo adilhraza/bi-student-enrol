@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using StudentCourseApp.Shared.Enums;
 
 namespace StudentCourseApp.Shared.Models
@@ -20,6 +21,7 @@ namespace StudentCourseApp.Shared.Models
         public string AddressLine2 { get; set; }
 
         public string AddressLine3 { get; set; }
-    }
 
+        public IEnumerable<CourseModel> Courses { get; set; }
+    }
 }
