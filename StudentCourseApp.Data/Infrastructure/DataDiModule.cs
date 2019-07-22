@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using StudentCourseApp.Data.Repository;
+using StudentCourseApp.Data.Repository.Impl;
 
 namespace StudentCourseApp.Data.Infrastructure
 {
@@ -6,8 +8,9 @@ namespace StudentCourseApp.Data.Infrastructure
     {
         protected override void Load(ContainerBuilder builder)
         {
-//            builder.RegisterType<StudentRepository>().As<IStudentRepository>();
-//            builder.RegisterType<AppDbContext>().As<IDatabaseContext>();
+           builder.RegisterType<StudentRepository>().As<IStudentRepository>();
+           builder.RegisterType<CourseRepository>().As<ICourseRepository>();
+           builder.RegisterType<AppDbContext>().As<IAppDbContext>();
         }
     }
 }

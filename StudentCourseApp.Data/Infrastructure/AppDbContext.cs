@@ -3,7 +3,7 @@ using StudentCourseApp.Data.Entity;
 
 namespace StudentCourseApp.Data.Infrastructure
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : DbContext, IAppDbContext
     {
         public AppDbContext()
             : base("StudentEnrollDbConnection") {}
