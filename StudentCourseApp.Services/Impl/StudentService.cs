@@ -1,4 +1,7 @@
-﻿using StudentCourseApp.Data.Repository;
+﻿using System.Collections.Generic;
+using StudentCourseApp.Data.Entity;
+using StudentCourseApp.Data.Repository;
+using StudentCourseApp.Services.Mappers;
 using StudentCourseApp.Shared.Models;
 
 namespace StudentCourseApp.Services.Impl
@@ -14,12 +17,53 @@ namespace StudentCourseApp.Services.Impl
 
         public StudentModel Get(int id)
         {
-            throw new System.NotImplementedException();
+            return _studentRepository.Get(id).ToModel();
         }
 
-        public string Test()
+        public IEnumerable<StudentModel> GetAll()
         {
-            return _studentRepository.Test();
+            return _studentRepository.GetAll().ToModels();
+        }
+
+        public void RemoveStudent(int id)
+        {
+            var student = _studentRepository.Get(id);
+
+            if (student == null) return;
+
+            _studentRepository.Remove(student);
+        }
+
+        public void UpdateStudent(StudentModel studentModel)
+        {
+            var student = _studentRepository.Get(studentModel.Id);
+            student.FirstName = studentModel.FirstName;
+            student.LastName = studentModel.LastName;
+            student.Gender = studentModel.Gender;
+            student.DateOfBirth = studentModel.DateOfBirth;
+            student.AddressLine1 = studentModel.AddressLine1;
+            student.AddressLine2 = studentModel.AddressLine2;
+            student.AddressLine3 = studentModel.AddressLine3;
+
+            _studentRepository.Update(student);
+            _studentRepository.Save();
+        }
+
+        public void AddNew(StudentModel studentModel)
+        {
+            var student = new Student
+            {
+                FirstName = studentModel.FirstName,
+                LastName = studentModel.LastName,
+                Gender = studentModel.Gender,
+                DateOfBirth = studentModel.DateOfBirth,
+                AddressLine1 = studentModel.AddressLine1,
+                AddressLine2 = studentModel.AddressLine2,
+                AddressLine3 = studentModel.AddressLine3
+            };
+
+            _studentRepository.Add(student);
+            _studentRepository.Save();
         }
     }
 }

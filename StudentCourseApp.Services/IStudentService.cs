@@ -1,4 +1,5 @@
-﻿using StudentCourseApp.Shared.Models;
+﻿using System.Collections.Generic;
+using StudentCourseApp.Shared.Models;
 
 namespace StudentCourseApp.Services
 {
@@ -6,6 +7,12 @@ namespace StudentCourseApp.Services
     {
         StudentModel Get(int id);
 
-        string Test();
+        IEnumerable<StudentModel> GetAll();
+
+        void RemoveStudent(int id);
+
+        void UpdateStudent(StudentModel studentModel);
+
+        void AddNew(StudentModel studentModel);
     }
 }
