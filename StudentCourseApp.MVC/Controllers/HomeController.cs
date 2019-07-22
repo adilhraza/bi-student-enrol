@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using StudentCourseApp.Services;
 
 namespace StudentCourseApp.MVC.Controllers
@@ -18,22 +14,24 @@ namespace StudentCourseApp.MVC.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Test = _studentService.Test();
-
             return View();
         }
 
-        public ActionResult About()
+        [Authorize(Roles = "Student")]
+        public ActionResult Student()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        [Authorize(Roles = "Admin")]
+        public ActionResult Students()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult Courses()
+        {
             return View();
         }
     }
