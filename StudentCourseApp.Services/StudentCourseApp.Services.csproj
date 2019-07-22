@@ -49,6 +49,8 @@
     <Compile Include="Impl\StudentService.cs" />
     <Compile Include="Infrastructure\ServicesDiModule.cs" />
     <Compile Include="IStudentService.cs" />
+    <Compile Include="Mappers\CourseMapper.cs" />
+    <Compile Include="Mappers\StudentMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
