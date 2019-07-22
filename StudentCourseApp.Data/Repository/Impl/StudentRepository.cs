@@ -5,9 +5,9 @@ namespace StudentCourseApp.Data.Repository.Impl
 {
     public class StudentRepository : BaseRepository<Student>, IStudentRepository
     {
-       public StudentRepository(AppDbContext dbContext)
-            : base(dbContext)
+        public string Test()
         {
+            return "Testing DI";
         }
     }
 }

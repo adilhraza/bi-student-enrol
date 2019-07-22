@@ -4,6 +4,6 @@ namespace StudentCourseApp.Data.Repository
 {
     public interface IStudentRepository : IBaseRepository<Student>
     {
-        
+        string Test();
     }
 }

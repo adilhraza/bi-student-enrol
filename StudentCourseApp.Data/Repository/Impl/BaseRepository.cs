@@ -10,11 +10,11 @@ namespace StudentCourseApp.Data.Repository.Impl
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         private readonly AppDbContext _dbContext;
-        private DbSet<T> _dbSet;
+        private readonly DbSet<T> _dbSet;
 
-        public BaseRepository(AppDbContext dbContext)
+        public BaseRepository()
         {
-            _dbContext = dbContext;
+            _dbContext = new AppDbContext();
             _dbSet = _dbContext.Set<T>();
         }
 
