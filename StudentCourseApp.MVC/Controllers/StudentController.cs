@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using NLog;
 using StudentCourseApp.Services;
 using StudentCourseApp.Shared.Models;
 
@@ -8,6 +10,8 @@ namespace StudentCourseApp.MVC.Controllers
 {
     public class StudentController : Controller
     {
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
+
         private readonly IStudentService _studentService;
 
         public StudentController(IStudentService studentService)
@@ -51,8 +55,16 @@ namespace StudentCourseApp.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                _studentService.AddNew(studentModel);
-                return RedirectToAction("Index");
+                try
+                {
+                    _studentService.AddNew(studentModel);
+                    return RedirectToAction("Index");
+
+                }
+                catch (Exception e)
+                {
+                    _logger.Error(e);
+                }
             }
 
             return View(studentModel);
@@ -82,8 +94,16 @@ namespace StudentCourseApp.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                _studentService.UpdateStudent(studentModel);
-                return RedirectToAction("Index");
+                try
+                {
+                    _studentService.UpdateStudent(studentModel);
+                    return RedirectToAction("Index");
+
+                }
+                catch (Exception e)
+                {
+                    _logger.Error(e);
+                }
             }
             return View(studentModel);
         }
@@ -108,8 +128,16 @@ namespace StudentCourseApp.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _studentService.RemoveStudent(id);
-            return RedirectToAction("Index");
+            try
+            {
+                _studentService.RemoveStudent(id);
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception e)
+            {
+                _logger.Error(e);
+            }
         }
     }
 }
