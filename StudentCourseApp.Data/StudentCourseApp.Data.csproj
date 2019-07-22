@@ -73,8 +73,12 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ICourseRepository.cs" />
     <Compile Include="Repository\Impl\BaseRepository.cs" />
     <Compile Include="Repository\IBaseRepository.cs" />
+    <Compile Include="Repository\Impl\CourseRepository.cs" />
+    <Compile Include="Repository\Impl\StudentRepository.cs" />
+    <Compile Include="Repository\IStudentRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
