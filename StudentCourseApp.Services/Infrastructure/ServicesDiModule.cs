@@ -9,6 +9,8 @@ namespace StudentCourseApp.Services.Infrastructure
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<StudentService>().As<IStudentService>();
+            builder.RegisterType<StudentCourseService>().As<IStudentCourseService>();
+            builder.RegisterType<CourseService>().As<ICourseService>();
             
             builder.RegisterModule(new DataDiModule());
         }
