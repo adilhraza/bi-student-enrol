@@ -58,6 +58,14 @@ namespace StudentCourseApp.Data.Repository.Impl
             return _dbSet.ToList();
         }
 
+        public IEnumerable<T> GetPagedResults(int pageIndex, int pageSize)
+        {
+            return _dbSet
+                .Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
+
         public IEnumerable<T> Find(Expression<Func<T, bool>> predicatExpression)
         {
             return _dbSet.Where(predicatExpression);

@@ -22,6 +22,8 @@ namespace StudentCourseApp.Data.Repository
 
         IEnumerable<T> GetAll();
 
+        IEnumerable<T> GetPagedResults(int pageIndex, int pageSize);
+
         IEnumerable<T> Find(Expression<Func<T, bool>> predicatExpression);
     }
 }
