@@ -47,7 +47,7 @@ namespace StudentCourseApp.Services.Impl
             _courseRepository.Save();
         }
 
-        public void AddNew(CourseModel courseModel)
+        public int AddNew(CourseModel courseModel)
         {
             var course = new Course
             {
@@ -60,6 +60,8 @@ namespace StudentCourseApp.Services.Impl
 
             _courseRepository.Add(course);
             _courseRepository.Save();
+
+            return course.CourseId;
         }
     }
 }

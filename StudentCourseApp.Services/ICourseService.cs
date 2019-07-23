@@ -13,6 +13,6 @@ namespace StudentCourseApp.Services
 
         void UpdateCourse(CourseModel courseModel);
 
-        void AddNew(CourseModel courseModel);
+        int AddNew(CourseModel courseModel);
     }
 }

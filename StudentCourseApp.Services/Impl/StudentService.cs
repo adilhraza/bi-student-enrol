@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using StudentCourseApp.Data.Entity;
 using StudentCourseApp.Data.Repository;
 using StudentCourseApp.Services.Mappers;
@@ -49,7 +50,7 @@ namespace StudentCourseApp.Services.Impl
             _studentRepository.Save();
         }
 
-        public void AddNew(StudentModel studentModel)
+        public int AddNew(StudentModel studentModel)
         {
             var student = new Student
             {
@@ -59,11 +60,14 @@ namespace StudentCourseApp.Services.Impl
                 DateOfBirth = studentModel.DateOfBirth,
                 AddressLine1 = studentModel.AddressLine1,
                 AddressLine2 = studentModel.AddressLine2,
-                AddressLine3 = studentModel.AddressLine3
+                AddressLine3 = studentModel.AddressLine3,
+                Courses = new List<Course>()
             };
 
             _studentRepository.Add(student);
             _studentRepository.Save();
+
+            return student.StudentId;
         }
     }
 }
