@@ -11,7 +11,7 @@ namespace StudentCourseApp.Services.Mappers
         {
             return new CourseModel
             {
-                Students = entity.Students.ToModels(),
+                Students = entity.Students?.ToModels(),
                 CourseCode = entity.CourseCode,
                 Id = entity.CourseId,
                 CourseName = entity.CourseName,

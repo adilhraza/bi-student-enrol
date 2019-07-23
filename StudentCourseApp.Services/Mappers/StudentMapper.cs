@@ -19,7 +19,7 @@ namespace StudentCourseApp.Services.Mappers
                 AddressLine1 = entity.AddressLine1,
                 AddressLine2 = entity.AddressLine2,
                 AddressLine3 = entity.AddressLine3,
-                Courses = entity.Courses.ToModels()
+                Courses = entity.Courses?.ToModels()
             };
         }
 
