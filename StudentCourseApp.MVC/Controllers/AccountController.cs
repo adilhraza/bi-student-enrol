@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -9,21 +10,24 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using StudentCourseApp.MVC.Models;
+using StudentCourseApp.Services;
+using StudentCourseApp.Shared.Enums;
+using StudentCourseApp.Shared.Models;
 
 namespace StudentCourseApp.MVC.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private readonly IStudentService _studentService;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        public AccountController(ApplicationUserManager userManager, 
+            ApplicationSignInManager signInManager,
+            IStudentService studentService)
         {
-        }
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
+            _studentService = studentService;
             UserManager = userManager;
             SignInManager = signInManager;
         }
@@ -151,12 +155,32 @@ namespace StudentCourseApp.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var studentModel = new StudentModel
+                {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Gender = Gender.Male,
+                    DateOfBirth = model.DateOfBirth,
+                    AddressLine1 = model.AddressLine1,
+                    AddressLine2 = model.AddressLine2,
+                    AddressLine3 = model.AddressLine3,
+                    Courses = new List<CourseModel>()
+                };
+
+                var studnetId = _studentService.AddNew(studentModel);
+
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    StudentId = studnetId
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
