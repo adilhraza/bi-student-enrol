@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentCourseApp.Data.Entity
 {
@@ -23,7 +22,7 @@ namespace StudentCourseApp.Data.Entity
 
         public DateTime EndDate { get; set; }
 
-        // navigational prop
-        public virtual IEnumerable<Student> Students { get; set; }
+        // relationship property
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

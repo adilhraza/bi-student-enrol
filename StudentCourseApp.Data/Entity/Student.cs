@@ -33,6 +33,6 @@ namespace StudentCourseApp.Data.Entity
         public string AddressLine3 { get; set; }
 
         // navigational prop
-        public virtual IEnumerable<Course> Courses { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
     }
 }
