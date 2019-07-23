@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201907201946134_UpdateTableAspNetRolesAddStudentAndAdminRoles.Designer.cs">
       <DependentUpon>201907201946134_UpdateTableAspNetRolesAddStudentAndAdminRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907230015207_student and course many to many relationship.cs" />
+    <Compile Include="Migrations\201907230015207_student and course many to many relationship.Designer.cs">
+      <DependentUpon>201907230015207_student and course many to many relationship.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ICourseRepository.cs" />
@@ -98,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907201946134_UpdateTableAspNetRolesAddStudentAndAdminRoles.resx">
       <DependentUpon>201907201946134_UpdateTableAspNetRolesAddStudentAndAdminRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907230015207_student and course many to many relationship.resx">
+      <DependentUpon>201907230015207_student and course many to many relationship.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
