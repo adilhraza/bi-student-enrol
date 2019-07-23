@@ -13,10 +13,12 @@ namespace StudentCourseApp.MVC.Controllers
         private static Logger _logger = LogManager.GetCurrentClassLogger();
 
         private readonly ICourseService _courseService;
+        private readonly IStudentCourseService _studentCourseService;
 
-        public CourseController(ICourseService courseService)
+        public CourseController(ICourseService courseService, IStudentCourseService studentCourseService)
         {
             _courseService = courseService;
+            _studentCourseService = studentCourseService;
         }
 
         // GET: Course
@@ -131,13 +133,25 @@ namespace StudentCourseApp.MVC.Controllers
             try
             {
                 _courseService.RemoveCourse(id);
-                return RedirectToAction("Index");
-
             }
             catch (Exception e)
             {
                 _logger.Error(e);
             }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult AddCourse(int courseId, int studentId)
+        {
+            try
+            {
+                _studentCourseService.AddCourseToStudent(courseId, studentId);
+            }
+            catch (Exception e)
+            {
+                _logger.Error(e);
+            }
+            return RedirectToAction("Index");
         }
     }
 }
